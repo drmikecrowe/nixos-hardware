@@ -7,6 +7,9 @@
     ./xps-common.nix
   ];
 
+  services.xserver.videoDrivers = lib.mkDefault [ "intel" "nvidia" ];
+  boot.extraModulePackages = lib.mkDefault [ pkgs.linuxPackages.nvidia_x11 ];
+  
   hardware.nvidia.prime = {
     # Bus ID of the Intel GPU.
     intelBusId = lib.mkDefault "PCI:0:2:0";
