@@ -2,19 +2,16 @@
 
 {
   imports = [
-    ../../../common/cpu/intel
-    ../../../common/cpu/nvidia
-    ../../../common/pc/laptop
+    ../../../common/gpu/intel
+    ../../../common/gpu/nvidia/prime.nix
     ./xps-common.nix
   ];
 
-  # This configuration makes intel default and optionaly applications could run nvidia with optirun.
-  # To Optimize for your use case import intel or nvidia only configuration instead
-  # xps-9560/intel
-  # or
-  # xps-9560/nvidia
+  hardware.nvidia.prime = {
+    # Bus ID of the Intel GPU.
+    intelBusId = lib.mkDefault "PCI:0:2:0";
 
- services.xserver.videoDrivers = lib.mkDefault [ "intel" "nvidia" ];
- boot.blacklistedKernelModules = lib.mkDefault [ "nouveau" "bbswitch" ];
- boot.extraModulePackages = lib.mkDefault [ pkgs.linuxPackages.nvidia_x11 ];
+    # Bus ID of the NVIDIA GPU.
+    nvidiaBusId = lib.mkDefault "PCI:1:0:0";
+  };
 }

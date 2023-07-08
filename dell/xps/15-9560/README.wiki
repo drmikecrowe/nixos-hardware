@@ -9,6 +9,13 @@
 * Graphics: NVIDIA Corporation GTX1050 4GB GDDR5, with Intel Graphics too.
 * Input: trackpad
 
+== Module Options ==
+
+Choose only one of the following configurations:
+
+* 15-9560 (intel + nvidia GPU, using prime for offload)
+* 15-9560/intel (only intel GPU)
+* 15-9560/nvidia (only nvidia GPU)
 
 == Firmware Configuration ==
 
