@@ -7,7 +7,6 @@
     ../xps-common.nix
   ];
 
-  services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
   boot.extraModulePackages = lib.mkDefault [ pkgs.linuxPackages.nvidia_x11 ];
 
   hardware.nvidia.prime = {
